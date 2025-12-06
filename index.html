@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillShare - Learn & Teach Skills</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation Bar -->
+        <nav id="navbar" class="navbar hidden">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2>SkillShare</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" data-page="home" class="nav-link">Home</a></li>
+                    <li><a href="#" data-page="my-profile" class="nav-link">My Profile</a></li>
+                    <li><a href="#" data-page="dashboard" class="nav-link">Dashboard</a></li>
+                    <li><a href="#" id="logout-btn" class="nav-link logout">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content Container -->
+        <main id="main-content">
+            <!-- Pages will be dynamically rendered here -->
+        </main>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="auth.js"></script>
+    <script src="pages.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
