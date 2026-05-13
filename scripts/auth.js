@@ -32,14 +32,14 @@ class AuthManager {
         if (showSignupBtn) {
             showSignupBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.navigationManager.navigateTo('signup');
+                this.showSignupPage();
             });
         }
 
         if (showLoginBtn) {
             showLoginBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                window.navigationManager.navigateTo('login');
+                this.showLoginPage();
             });
         }
 

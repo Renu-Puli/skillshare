@@ -60,7 +60,15 @@
 }
 
 .auth-switch a {
+    color: var(--primary-400);
     font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.auth-switch a:hover {
+    color: var(--primary-300);
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
 }
 
 .add-skill-form-expanded {
