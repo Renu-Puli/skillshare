@@ -18,13 +18,14 @@
         }
         .quiz-container {
             width: 100%;
-            max-width: 800px;
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 900px;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--glass-border);
             border-radius: var(--radius-2xl);
             padding: var(--space-8);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), var(--glow-primary);
             display: flex;
             flex-direction: column;
             gap: var(--space-6);
@@ -48,7 +49,7 @@
             font-size: var(--font-size-sm);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--gray-400);
+            color: var(--text-secondary);
             margin-bottom: var(--space-4);
             display: flex;
             justify-content: space-between;
@@ -66,11 +67,11 @@
             justify-content: center;
             border-radius: var(--radius-md);
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
             font-size: var(--font-size-xs);
             cursor: pointer;
             transition: all 0.2s;
-            color: var(--gray-400);
+            color: var(--text-secondary);
         }
         .nav-item.active {
             border-color: var(--primary-500);
@@ -102,11 +103,12 @@
             border: 1px solid var(--primary-900);
         }
         .quiz-header h1 {
-            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            background: var(--shine-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin: 0;
             font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
         }
         .progress-bar-container {
             width: 100%;
@@ -119,7 +121,7 @@
         }
         .progress-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary-600), var(--primary-400));
+            background: var(--shine-gradient);
             width: 0%;
             transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 0 20px var(--primary-500);
@@ -180,7 +182,7 @@
         <div class="quiz-header">
             <div>
                 <h1 id="quiz-title">Skill Assessment</h1>
-                <p id="quiz-subtitle" style="margin-top: 5px; color: var(--gray-400);">Determination of expertise level</p>
+                <p id="quiz-subtitle" style="margin-top: 5px; color: var(--text-secondary);">Determination of expertise level</p>
             </div>
             <div id="quiz-timer" class="timer-display">25:00</div>
         </div>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SkillShare - Connect & Learn Platform
 
 A complete frontend-only web application for connecting people to share and learn skills. Built with pure HTML, CSS, and JavaScript with LocalStorage persistence.
@@ -76,36 +75,6 @@ For testing purposes, some demo accounts are pre-loaded:
 - **Email**: jane@example.com, **Password**: password123
 - **Email**: mike@example.com, **Password**: password123
 
-## Features Overview
-
-### User Authentication
-- Secure signup with email validation
-- Login with persistent sessions
-- Logout functionality
-
-### Skill Sharing
-- Add unlimited skills to your profile
-- Browse other users' skills
-- Request to learn specific skills
-- Manage incoming learning requests
-
-### Rating System
-- Rate users from 1-5 stars
-- View average ratings for all users
-- Rating-based user rankings
-
-### Responsive Design
-- Mobile-friendly interface
-- Tablet and desktop optimized
-- Clean, modern UI design
-
-## Browser Compatibility
-
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
-
 ## Data Persistence
 
 All user data is stored locally in the browser using LocalStorage:
@@ -116,14 +85,6 @@ All user data is stored locally in the browser using LocalStorage:
 
 **Note**: Data is stored locally and will be lost if browser data is cleared.
 
-## Contributing
-
-This is a demonstration project showcasing frontend web development skills. Feel free to use as a learning resource or starting point for similar projects.
-
 ## License
 
 This project is open source and available under the MIT License.
-=======
-# skillshare
-A web-based Skill Share platform built using Node.js, React.js, HTML, CSS, and JavaScript. The system enables users to share skills, explore categories, and connect with peers through an interactive, user-friendly interface designed for smooth learning and collaboration.
->>>>>>> f45e9c7c8bce797ed2e8e2ccfc97e9062dd579b2

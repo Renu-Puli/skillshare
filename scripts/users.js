@@ -27,7 +27,7 @@ class UsersManager {
     }
 
     renderUsersGrid(users) {
-        const gridContainer = document.getElementById('users-grid');
+        const gridContainer = document.getElementById('user-list');
         if (!gridContainer) return;
 
         if (users.length === 0) {

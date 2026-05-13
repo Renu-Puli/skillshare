@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillShare - Connect & Learn</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages.css">
 </head>
 <body>
     <div id="app">
@@ -10,7 +14,7 @@
         <nav id="nav-bar" class="nav-bar hidden">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <h2>SkillShare</h2>
+                    <h2 class="brand-text">SkillShare</h2>
                 </div>
                 <div class="nav-links">
                     <a href="#" data-page="home" class="nav-link active">Home</a>
@@ -46,7 +50,7 @@
                             <button type="submit" class="btn btn-primary btn-full">Sign In</button>
                         </form>
                         <div class="auth-switch">
-                            <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+                            <p>Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
                         </div>
                     </div>
                 </div>
@@ -56,25 +60,25 @@
             <div id="signup-page" class="page">
                 <div class="auth-container">
                     <div class="auth-card">
-                        <h1>Join SkillShare</h1>
-                        <p>Create your account to start learning</p>
+                        <h1>Create Account</h1>
+                        <p>Join our community of learners and teachers</p>
                         <form id="signup-form">
                             <div class="form-group">
                                 <label for="signup-name">Full Name</label>
                                 <input type="text" id="signup-name" required>
                             </div>
                             <div class="form-group">
-                                <label for="signup-email">Email</label>
+                                <label for="signup-email">Email Address</label>
                                 <input type="email" id="signup-email" required>
                             </div>
                             <div class="form-group">
                                 <label for="signup-password">Password</label>
                                 <input type="password" id="signup-password" required>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                            <button type="submit" class="btn btn-primary btn-full">Sign Up</button>
                         </form>
                         <div class="auth-switch">
-                            <p>Already have an account? <a href="#" id="show-login">Sign in</a></p>
+                            <p>Already have an account? <a href="#" id="show-login">Sign In</a></p>
                         </div>
                     </div>
                 </div>
@@ -84,25 +88,25 @@
             <div id="home-page" class="page">
                 <div class="container">
                     <div class="page-header">
-                        <h1>Discover Skilled People</h1>
-                        <p>Connect with talented individuals and learn from the best</p>
+                        <h1>Expert Skill Providers</h1>
+                        <p>Find the right mentor for your learning journey</p>
                     </div>
-                    <div id="users-grid" class="users-grid">
-                        <!-- Users will be dynamically loaded here -->
+                    <div id="user-list" class="users-grid">
+                        <!-- User cards will be loaded here -->
                     </div>
                 </div>
             </div>
 
-            <!-- Profile View Page -->
+            <!-- Profile View Page (for others) -->
             <div id="profile-view-page" class="page">
                 <div class="container">
-                    <div class="profile-header">
-                        <button id="back-to-home" class="btn btn-outline">← Back</button>
-                        <div id="profile-info" class="profile-info">
-                            <!-- Profile info will be loaded here -->
+                    <div id="profile-view-content" class="profile-content">
+                        <div class="profile-header">
+                            <div class="profile-info">
+                                <h1 id="view-user-name">User Name</h1>
+                                <p id="view-user-email">user@example.com</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="profile-content">
                         <div class="skills-section">
                             <h3>Skills</h3>
                             <div id="profile-skills" class="skills-list">
@@ -135,18 +139,16 @@
                     </div>
                     <div class="profile-sections">
                         <div class="section">
-                            <h3>My Skills</h3>
+                            <h3>Add New Skill</h3>
                             <form id="add-skill-form" class="add-skill-form-expanded">
                                 <div class="form-row">
-                                    <input type="text" id="new-skill" placeholder="Skill name (e.g. JavaScript)..." required>
-                                </div>
-                                <div class="form-row">
-                                    <input type="url" id="skill-video" placeholder="Video tutorial link (optional)...">
+                                    <input type="text" id="new-skill" placeholder="Skill name (e.g. JavaScript)...">
+                                    <input type="text" id="skill-video" placeholder="Video tutorial link (optional)...">
                                 </div>
                                 <div class="form-row">
                                     <textarea id="skill-text" placeholder="Brief description or key notes (optional)..."></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-full">Add Skill with Resources</button>
+                                <button type="submit" class="btn btn-primary btn-full">ADD SKILL WITH RESOURCES</button>
                             </form>
                             <div id="my-skills" class="skills-grid">
                                 <!-- Skills with resources will be loaded here -->
@@ -211,31 +213,5 @@
     <script src="scripts/skills.js"></script>
     <script src="scripts/ratings.js"></script>
     <script src="scripts/app.js"></script>
-=======
-        <nav id="navbar" class="navbar hidden">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <h2>SkillShare</h2>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#" data-page="home" class="nav-link">Home</a></li>
-                    <li><a href="#" data-page="my-profile" class="nav-link">My Profile</a></li>
-                    <li><a href="#" data-page="dashboard" class="nav-link">Dashboard</a></li>
-                    <li><a href="#" id="logout-btn" class="nav-link logout">Logout</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- Main Content Container -->
-        <main id="main-content">
-            <!-- Pages will be dynamically rendered here -->
-        </main>
-    </div>
-
-    <script src="storage.js"></script>
-    <script src="auth.js"></script>
-    <script src="pages.js"></script>
-    <script src="main.js"></script>
->>>>>>> f45e9c7c8bce797ed2e8e2ccfc97e9062dd579b2
 </body>
 </html>
