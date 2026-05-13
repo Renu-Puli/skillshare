@@ -1,9 +1,4 @@
 {
-  "name": "skillshare-app",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "description": "A complete skill-sharing platform built with HTML, CSS, and JavaScript",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

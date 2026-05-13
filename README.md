@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SkillShare - Connect & Learn Platform
 
 A complete frontend-only web application for connecting people to share and learn skills. Built with pure HTML, CSS, and JavaScript with LocalStorage persistence.
@@ -122,3 +123,7 @@ This is a demonstration project showcasing frontend web development skills. Feel
 ## License
 
 This project is open source and available under the MIT License.
+=======
+# skillshare
+A web-based Skill Share platform built using Node.js, React.js, HTML, CSS, and JavaScript. The system enables users to share skills, explore categories, and connect with peers through an interactive, user-friendly interface designed for smooth learning and collaboration.
+>>>>>>> f45e9c7c8bce797ed2e8e2ccfc97e9062dd579b2
