@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Quiz - SkillShare</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages.css">
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #0f172a, #1e293b);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-4);
+        }
+        .quiz-container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-8);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-6);
+        }
+        .quiz-main {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            padding: var(--space-6);
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .quiz-sidebar {
+            width: 100%;
+            border-left: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-left: 0;
+            padding-top: var(--space-6);
+            margin-top: var(--space-4);
+        }
+        .quiz-sidebar h3 {
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+            margin-bottom: var(--space-4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .question-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+            gap: var(--space-2);
+        }
+        .nav-item {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: var(--font-size-xs);
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--gray-400);
+        }
+        .nav-item.active {
+            border-color: var(--primary-500);
+            color: white;
+            background: rgba(139, 92, 246, 0.2);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.4);
+        }
+        .nav-item.answered {
+            background: var(--primary-500);
+            color: white;
+            border-color: var(--primary-400);
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: var(--space-4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: var(--space-4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .timer-display {
+            font-family: monospace;
+            font-size: var(--font-size-xl);
+            color: var(--primary-400);
+            background: rgba(0, 0, 0, 0.3);
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--primary-900);
+        }
+        .quiz-header h1 {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            font-size: var(--font-size-2xl);
+        }
+        .progress-bar-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-4);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-600), var(--primary-400));
+            width: 0%;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px var(--primary-500);
+        }
+        .quiz-footer {
+            margin-top: var(--space-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4);
+            margin-top: var(--space-6);
+        }
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option-label:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-400);
+            transform: translateY(-2px);
+        }
+        .option-label input[type="radio"] {
+            accent-color: var(--primary-500);
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+        .question-text {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            color: white;
+            line-height: 1.4;
+            margin-bottom: var(--space-6);
+        }
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            .quiz-header {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <div>
+                <h1 id="quiz-title">Skill Assessment</h1>
+                <p id="quiz-subtitle" style="margin-top: 5px; color: var(--gray-400);">Determination of expertise level</p>
+            </div>
+            <div id="quiz-timer" class="timer-display">25:00</div>
+        </div>
+        
+        <div class="progress-bar-container">
+            <div id="progress-fill" class="progress-bar-fill"></div>
+        </div>
+
+        <div class="quiz-main">
+            <div id="quiz-body">
+                <!-- Questions loaded here -->
+                <div class="empty-state">Loading questions...</div>
+            </div>
+
+            <div class="quiz-footer">
+                <div class="nav-left" style="display: flex; gap: var(--space-2);">
+                    <button id="prev-q" class="btn btn-outline">Previous</button>
+                    <button id="clear-q" class="btn btn-outline">Clear</button>
+                </div>
+                <div class="nav-right">
+                    <button id="next-q" class="btn btn-primary">Next Question</button>
+                    <button id="submit-quiz" class="btn btn-success hidden" style="background: linear-gradient(135deg, #10b981, #059669);">Submit Assessment</button>
+                </div>
+            </div>
+        </div>
+
+        <aside class="quiz-sidebar">
+            <h3>
+                <span>Question Navigator</span>
+                <span id="answered-count" style="font-size: var(--font-size-xs); color: var(--primary-400);">0/25 Answered</span>
+            </h3>
+            <div id="question-nav" class="question-nav-grid">
+                <!-- Navigation numbers will be loaded here -->
+            </div>
+        </aside>
+    </div>
+
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/quiz.js"></script>
+    <script>
+        // Start the quiz automatically based on URL params
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const skill = params.get('skill');
+            if (skill && window.quizManager) {
+                window.quizManager.startQuiz(skill);
+            } else {
+                document.getElementById('quiz-body').innerHTML = '<div class="empty-state">No skill specified. Please return to your profile.</div>';
+            }
+        });
+    </script>
+</body>
+</html>
