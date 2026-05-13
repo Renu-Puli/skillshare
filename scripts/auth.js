@@ -32,14 +32,14 @@ class AuthManager {
         if (showSignupBtn) {
             showSignupBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.showSignupPage();
+                window.navigationManager.navigateTo('signup');
             });
         }
 
         if (showLoginBtn) {
             showLoginBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.showLoginPage();
+                window.navigationManager.navigateTo('login');
             });
         }
 
@@ -141,24 +141,12 @@ class AuthManager {
     }
 
     showLoginPage() {
-        const loginPage = document.getElementById('login-page');
-        const signupPage = document.getElementById('signup-page');
-        
-        loginPage.classList.add('active');
-        signupPage.classList.remove('active');
-        
-        // Clear forms
+        window.navigationManager.navigateTo('login');
         document.getElementById('login-form').reset();
     }
 
     showSignupPage() {
-        const loginPage = document.getElementById('login-page');
-        const signupPage = document.getElementById('signup-page');
-        
-        signupPage.classList.add('active');
-        loginPage.classList.remove('active');
-        
-        // Clear forms
+        window.navigationManager.navigateTo('signup');
         document.getElementById('signup-form').reset();
     }
 

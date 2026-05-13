@@ -9,6 +9,14 @@ class NavigationManager {
     init() {
         this.setupEventListeners();
         this.checkInitialRoute();
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', () => {
+            const page = window.location.hash.substring(1);
+            if (page && this.pages.includes(page)) {
+                this.navigateTo(page, false);
+            }
+        });
     }
 
     setupEventListeners() {
@@ -54,10 +62,15 @@ class NavigationManager {
         }
     }
 
-    navigateTo(pageName) {
+    navigateTo(pageName, updateHash = true) {
         if (!this.pages.includes(pageName)) {
             console.error(`Page "${pageName}" not found`);
             return;
+        }
+
+        // Update URL hash
+        if (updateHash) {
+            window.location.hash = pageName;
         }
 
         // Check authentication for protected pages
